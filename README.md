@@ -18,6 +18,8 @@ Errors will be handled with a errBack logic that must be exposed(or defaulted to
 The final run function for the bots will requires all invoked parameters or invoke the failedParams error.
 The bot will optionally support a token/permissions system of exposed authentification rules
 Finally i will strugle to make it as simple and generic humanly possible. Any ideas or contributions is welcomed!
+Eventually i would add neural net machine learning to prioritize best performing routines sets conditionaaly to oracles data which would enable to learn to be better.
+Also it could bind machine learning result as oracles from the main pipelines to each routine and task saparatly, making it a very smart bot !
 
 ##### Main logic:
 lexicon:
@@ -129,6 +131,7 @@ autotask/
 * setup.js (bot configurations and autotask constructor invokation; is asserted by global rules; is invoked and passed configuration and rules paths/ids via run.js)
 * autotask.js (main bot object constructor; contain pipelines associated with their global strategy/events and goals parameters; act like a router)
 * map.js (index constructor to handle path resolution and env/globals variables; invoked by autotask.js)
+* do.js ( handle tasks invokation)
 * defer/defer.js ( handle deferred contructors and iterators)
 * defer/promised.js ( handle rules and goal parameters assertions from strategies)
 * pipelines/<pipeline name> (custom pipeline; set of routine and/or subroutines)
@@ -138,6 +141,7 @@ autotask/
 * routines/goals.js (goal parameters and trategies constructor)
 * routines/ will.js ( handle goal parameters resolution with strategy and handle goal status and tryout limit; will act as a local router for the current routine global goal and hten to next process.)
 * routines/rules.js ( middleware constructor associated to a unique namespace taken from connectors[default mongoDb])
+* routines/confirm.js ( handle confirmations delay and assertions for events and/or strategy resolution)
 * routines/error.js (handle errors)
 * strategies/ strategies.js ( strategies constructor)
 * strategies/ strategymaster.js ( handle strategy resolution with promises and defers; called each time a strategy is invoked.)
