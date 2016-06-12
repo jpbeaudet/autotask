@@ -9,6 +9,6 @@
 module.exports= function setup (){
 	// print process.argv
 	process.argv.forEach(function (val, index, array) {
-	console.log(index + ': ' + val);
+	console.log(index + ': ' + val); 
 	});
 }
