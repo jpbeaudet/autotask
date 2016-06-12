@@ -125,13 +125,19 @@ Promise can be linked to either return value passed thourgth the assertion and/o
 If not defined any tasks will use default status strategies. 
 
 #### Structures:
-autotask/
+>> root
+>> autotask/
 * run.js (auto task router; will trigger bot setup; can launch multiple bot at the same time; bot(s) can listen to events and start/stop accordingly)
 * config.js (main global configs)
 * setup.js (bot configurations and autotask constructor invokation; is asserted by global rules; is invoked and passed configuration and rules paths/ids via run.js)
+* package.json
+* license (gpl 3.0)
+
+>> autotask/src/
 * autotask.js (main bot object constructor; contain pipelines associated with their global strategy/events and goals parameters; act like a router)
-* map.js (index constructor to handle path resolution and env/globals variables; invoked by autotask.js)
 * do.js ( handle tasks invokation)
+* bots/<botname>/<botname>.js (actual configured instance of autotask.js for a single bot)
+* bots/<botname>/map.js (index to handle path resolution and env/globals variables; invoked by autotask.js)
 * defer/defer.js ( handle deferred contructors and iterators)
 * defer/promised.js ( handle rules and goal parameters assertions from strategies)
 * pipelines/<pipeline name> (custom pipeline; set of routine and/or subroutines)
@@ -139,12 +145,12 @@ autotask/
 * pipelines/error.js (handle errors)
 * routines/routines.js (routines/subroutines constructor)
 * routines/goals.js (goal parameters and trategies constructor)
-* routines/ will.js ( handle goal parameters resolution with strategy and handle goal status and tryout limit; will act as a local router for the current routine global goal and hten to next process.)
+* routines/will.js ( handle goal parameters resolution with strategy and handle goal status and tryout limit; will act as a local router for the current routine global goal and hten to next process.)
 * routines/rules.js ( middleware constructor associated to a unique namespace taken from connectors[default mongoDb])
 * routines/confirm.js ( handle confirmations delay and assertions for events and/or strategy resolution)
 * routines/error.js (handle errors)
-* strategies/ strategies.js ( strategies constructor)
-* strategies/ strategymaster.js ( handle strategy resolution with promises and defers; called each time a strategy is invoked.)
+* strategies/strategies.js ( strategies constructor)
+* strategies/strategymaster.js ( handle strategy resolution with promises and defers; called each time a strategy is invoked.)
 * strategies/error.js (handle errors)
 * tasks/tasks.js( task constructor)
 * tasks/taskmaster.js ( handle task resolution with strategies)
@@ -158,13 +164,12 @@ autotask/
 * connectors/ws.js
 * connectors/mongoDb.js
 * connectors/request.js
-* connectors/poll.js( handle the polling of multiple oracles sources with attributed weigth and return according status/return value)
+* connectors/poll.js ( handle the polling of multiple oracles sources with attributed weigth and return according status/return value)
 * connectors/quorum.js (config object for poll weigth each polling pool beeing attributed a namespace)
 * connectors/resolve.js (will handle strategy assertion[promises/rules] from connectors and return status and return value to adpater.js)
 * connectors/adapter.js ( handle connector data result and traduct it in proper task invokation)
-* auths/ <pipeline name> (setup the authenfification pipelines and routines and bind event/strategies)
+* auths/<pipeline name> (setup the authenfification pipelines and routines and bind event/strategies)
 
-package.json
-license
+
 
 ###### Nota: This is a testground repo and will be migrated to a cleaner module when goal is reached.
