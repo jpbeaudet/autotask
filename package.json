@@ -1,0 +1,20 @@
+{
+  "name": "Autotasks",
+  "main": "run.js",
+  "description": "Generic block-building bot using recursive deferred-promise like logic.",
+  "repository" :
+  { "type" : "git",
+    "url" : "https://github.com/jpbeaudet/autotask"
+  },
+  "license" : "(GPL-3.0)" ,
+  "scripts": {"start": "node run.js"},
+  "version": "0.0.1",
+  "dependencies": {
+    "unit-test" : "0.0.9",
+    "chai" : "3.5.0",
+    "json-rpc2" : "1.0.2",
+    "chai" : "3.5.0",
+    "mongoose" : "4.4.20"
+  }
+}
+

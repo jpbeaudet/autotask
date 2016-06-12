@@ -158,6 +158,8 @@ autotask/
 * connectors/ws.js
 * connectors/mongoDb.js
 * connectors/request.js
+* connectors/poll.js( handle the polling of multiple oracles sources with attributed weigth and return according status/return value)
+* connectors/quorum.js (config object for poll weigth each polling pool beeing attributed a namespace)
 * connectors/resolve.js (will handle strategy assertion[promises/rules] from connectors and return status and return value to adpater.js)
 * connectors/adapter.js ( handle connector data result and traduct it in proper task invokation)
 * auths/ <pipeline name> (setup the authenfification pipelines and routines and bind event/strategies)
